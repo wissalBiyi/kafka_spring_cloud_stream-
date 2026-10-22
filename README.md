@@ -28,7 +28,7 @@ Les principales réalisations comprennent :
 
 L’architecture repose sur Kafka pour assurer les échanges entre les producteurs, les consommateurs et le traitement analytique.
 
-![Architecture du projet](images/img1.png)
+![Architecture du projet](Images/img1.png)
 
 Les principaux composants sont :
 
@@ -52,14 +52,14 @@ docker ps
 
 La capture montre les conteneurs **bdcc-kafka-broker** et **bdcc-zookeeper** avec le statut **Up**.
 
-![Conteneurs Kafka et ZooKeeper actifs](images/img2.png)
+![Conteneurs Kafka et ZooKeeper actifs](Images/img2.png)
 
 ### B. Publication des messages dans T1
 
 Le producteur console permet de saisir des messages et de les publier dans le topic **T1** :
 
 
-![Conteneurs Kafka et ZooKeeper actifs](images/img3.png)
+![Conteneurs Kafka et ZooKeeper actifs](Images/img3.png)
 
 ### C. Consommation des messages de T1
 
@@ -71,7 +71,7 @@ docker exec -it bdcc-kafka-broker kafka-console-consumer --bootstrap-server loca
 
 Les messages publiés sont affichés dans le terminal du consommateur.
 
-![Consommation des messages de T1](images/img4.png)
+![Consommation des messages de T1](Images/img4.png)
 
 ### D. Relecture des messages avec from-beginning
 
@@ -80,7 +80,7 @@ L’option **--from-beginning** permet de relire les messages encore conservés 
 
 La capture montre la récupération des messages précédemment publiés.
 
-![Relecture des messages de T1](images/img5.png)
+![Relecture des messages de T1](Images/img5.png)
 
 ---
 
@@ -103,7 +103,7 @@ Le contrôleur retourne un événement JSON contenant les champs suivants :
 - **date** : date de l’événement.
 - **duration** : durée associée à l’événement.
 
-![Réponse du contrôleur REST](images/img6.png)
+![Réponse du contrôleur REST](Images/img6.png)
 
 ### B. Vérification de la réception dans T2
 
@@ -115,7 +115,7 @@ docker exec -it bdcc-kafka-broker kafka-console-consumer --bootstrap-server loca
 
 La capture montre un événement reçu au format JSON.
 
-![Réception d’un événement dans T2](images/img7.png)
+![Réception d’un événement dans T2](Images/img7.png)
 
 Les captures du navigateur et du terminal illustrent deux publications distinctes, avec des valeurs différentes pour l’utilisateur, la date et la durée.
 
@@ -127,7 +127,7 @@ Le Consumer Spring reçoit les événements Kafka sous forme d’objets **PageEv
 
 
 
-![Réception du PageEvent dans IntelliJ](images/img8.png)
+![Réception du PageEvent dans IntelliJ](Images/img8.png)
 
 Ce test illustre la réception et l’affichage d’un événement par le Consumer de l’application.
 
@@ -154,7 +154,7 @@ docker exec -it bdcc-kafka-broker kafka-console-consumer --bootstrap-server loca
 
 Les messages apparaissent successivement, avec un intervalle d’environ une seconde dans la capture.
 
-![Événements générés automatiquement dans T3](images/img9.png)
+![Événements générés automatiquement dans T3](Images/img9.png)
 
 Ce résultat illustre la génération et la publication périodiques des événements.
 
@@ -183,7 +183,7 @@ http://localhost:8082/analytics
 
 
 
-![Flux de résultats analytiques](images/img10.png)
+![Flux de résultats analytiques](Images/img10.png)
 
 Le préfixe **data:** correspond au format utilisé pour transmettre des événements avec **Server-Sent Events**.
 
@@ -203,7 +203,7 @@ http://localhost:8082/index.html
 
 L’interface affiche deux séries de résultats et permet de suivre leur évolution pendant l’exécution.
 
-![Graphique des résultats analytiques](images/img11.png)
+![Graphique des résultats analytiques](Images/img11.png)
 
 La capture montre deux courbes, rouge et verte. L’absence de légende ne permet pas d’attribuer avec certitude chaque couleur à une page.
 
